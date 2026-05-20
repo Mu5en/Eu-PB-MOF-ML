@@ -11,8 +11,8 @@ This repository contains the Python scripts used to produce all machine-learning
 
 | File | Purpose |
 |---|---|
-| `fluorescence_ml_si_tables_optimized.py` | Single-component preprocessing, feature extraction (25 ratios + 16 SG derivatives + 18 peak-shape descriptors + 8 PCA scores), PLS-DA / Random Forest / SVM-RBF classification under group-aware nested CV, LOCO/LOCO-DC, random-label control, feature ablation, external-batch prediction. Reproduces Tables 2, S5–S8, S11. |
-| `mixture_antibiotic_ml_table3_rf_v2_fixed.py` | 45-spectrum binary-mixture pipeline: 15-composition classification (leave-one-replicate-out), pair classification (internal ratios only), mole-fraction regression (leave-one-composition-out). Reproduces Table 3 and Table S10. |
+| `fluorescence_ml.py` | Single-component preprocessing, feature extraction (25 ratios + 16 SG derivatives + 18 peak-shape descriptors + 8 PCA scores), PLS-DA / Random Forest / SVM-RBF classification under group-aware nested CV, LOCO/LOCO-DC, random-label control, feature ablation, external-batch prediction. Reproduces Tables 2, S5–S8, S11. |
+| `mixture_antibiotic_ml.py` | 45-spectrum binary-mixture pipeline: 15-composition classification (leave-one-replicate-out), pair classification (internal ratios only), mole-fraction regression (leave-one-composition-out). Reproduces Table 3 and Table S10. |
 | `requirements.txt` | Python dependency pins. |
 | `LICENSE` | MIT License. |
 
@@ -51,10 +51,10 @@ pip install -r requirements.txt
 # 4. Download data from Zenodo (DOI above) and unzip into ./data/
 
 # 5. Reproduce the single-component ML tables and figures
-python fluorescence_ml_si_tables_optimized.py
+python fluorescence_ml.py
 
 # 6. Reproduce the mixture tables
-python mixture_antibiotic_ml_table3_rf_v2_fixed.py
+python mixture_antibiotic_ml.py
 ```
 
 Each script writes its outputs (printed metrics, CSV summary, plots) to the working directory. Random seeds are fixed inside the scripts; running on a different machine with the listed library versions should produce identical numerical results within floating-point tolerance.
